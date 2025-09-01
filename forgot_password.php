@@ -31,15 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Create reset token
                 $token = createPasswordResetToken($user['id']);
                 
-                // Send email
-                if (sendPasswordResetEmail($user['email'], $token)) {
-                    $message = 'Password reset instructions have been sent to your email.';
-                } else {
-                    $error = 'Failed to send email. Please try again later.';
-                }
+                // Redirect to reset password page with token
+                redirect("reset_password.php?token=" . urlencode($token));
             } else {
                 // For security, don't reveal if email exists or not
-                $message = 'If your email exists in our system, you will receive password reset instructions.';
+                $message = 'If your email exists in our system, you will be redirected to reset your password.';
             }
         }
     }
@@ -215,13 +211,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </div>
                         <div class="form-text">
-                            Enter your email address and we'll send you instructions to reset your password.
+                            Enter your email address to reset your password.
                         </div>
                     </div>
                     
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-send me-2"></i> Send Reset Instructions
+                            <i class="bi bi-arrow-right me-2"></i> Continue to Password Reset
                         </button>
                     </div>
                 </form>
