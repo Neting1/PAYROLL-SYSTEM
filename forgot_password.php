@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 400px;
             width: 100%;
             margin: 0 auto;
+            padding: 20px; /* Add padding to container */
         }
         
         .login-card {
@@ -87,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
             overflow: hidden;
             background: white;
+            width: 100%; /* Ensure card takes full width of container */
         }
         
         .login-header {
@@ -161,6 +163,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             .login-header {
                 padding: 1.5rem;
             }
+        }
+        
+        /* Fix for the text alignment */
+        .text-center {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Add hover effect for the back link */
+        .text-center a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline !important;
         }
     </style>
 </head>
